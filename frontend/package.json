@@ -29,7 +29,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest --config jest.config.js",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "e2e": "start-server-and-test start http://localhost:3000 cy:run",
+    "e2e:open": "start-server-and-test start http://localhost:3000 cy:open"
   },
   "eslintConfig": {
     "extends": [
@@ -48,5 +52,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "cypress": "^16.0.0",
+    "start-server-and-test": "^3.0.12"
   }
 }
