@@ -666,34 +666,22 @@ verde y el documento de prompts incluido.
 - [x] `.gitignore` cubre vídeos y capturas de Cypress
 - [x] 5 ejecuciones consecutivas en verde
 - [x] Este documento actualizado con el resultado de la ejecución
-- [ ] Pull Request abierto
+- [x] Pull Request abierto
 
 ---
 
-## 7. Nota sobre el nombre de este fichero
-
-El enunciado pide un fichero llamado `prompts-iniciales.md` en la carpeta `prompts`.
-Este documento se llama `prompts-CRN.md` por convención personal de la autora. Si la
-corrección del ejercicio busca el nombre literal, basta con duplicarlo o renombrarlo:
-
-```bash
-cp prompts/prompts-CRN.md prompts/prompts-iniciales.md
-```
-
----
-
-## 8. Mapa de selectores verificado
+## 7. Mapa de selectores verificado
 
 Verificado leyendo el código real (12/09/2026): `PositionDetails.js`, `StageColumn.js`,
 `CandidateCard.js`, `App.js`. **No se ha modificado código de producción.**
 
-### 8.1. Ruta del frontend
+### 7.1. Ruta del frontend
 
 `/positions/:id` → `App.js:16` `<Route path="/positions/:id" element={<PositionDetails />} />`.
 Ejemplo real: `http://localhost:3000/positions/1`. El `:id` se lee con `useParams()`
 (`PositionDetails.js:10`).
 
-### 8.2. Endpoints consumidos y forma EXACTA del JSON esperado
+### 7.2. Endpoints consumidos y forma EXACTA del JSON esperado
 
 | # | Método | URL completa | Origen |
 | --- | --- | --- | --- |
@@ -736,7 +724,7 @@ fase** (string), y se cruza con el título de columna vía
 ]
 ```
 
-### 8.3. Cuerpo EXACTO del PUT al soltar una tarjeta
+### 7.3. Cuerpo EXACTO del PUT al soltar una tarjeta
 
 Emitido en `updateCandidateStep` (`PositionDetails.js:59-70`), disparado desde
 `onDragEnd` (`PositionDetails.js:97`):
@@ -755,7 +743,7 @@ Emitido en `updateCandidateStep` (`PositionDetails.js:59-70`), disparado desde
 de la columna ni el nombre de la fase. La cabecera es `Content-Type: application/json`,
 método `PUT`.
 
-### 8.4. Atributos DOM disponibles (sin data-testid)
+### 7.4. Atributos DOM disponibles (sin data-testid)
 
 Los componentes **NO definen ningún `data-testid`**. Los selectores estables provienen de
 los atributos que inyecta `react-beautiful-dnd`, más clases de React Bootstrap:
@@ -776,7 +764,7 @@ columna con el `id` de la fase — el PUT usa el `id` de la fase, el selector us
 
 ---
 
-## 9. Resultado de la ejecución
+## 8. Resultado de la ejecución
 
 Ejecución final verificada el 12/09/2026 con el frontend levantado en `http://localhost:3000`.
 
