@@ -44,3 +44,62 @@ describe('Pantalla de Position - carga inicial', () => {
     });
   });
 });
+
+describe('Pantalla de Position - cambio de fase de un candidato', () => {
+  beforeEach(() => {
+    cy.visitPositionBoard(1);
+  });
+
+  it('mueve un candidato de una columna a la siguiente y persiste el cambio', () => {
+    // Estado inicial: el candidato 1 (Alice) está en la primera columna.
+    cy.get('[data-rbd-droppable-id="0"]')
+      .find('[data-rbd-draggable-id="1"]')
+      .should('exist');
+
+    // Mover la tarjeta a la columna de la derecha (Technical Interview).
+    cy.moveCandidateByKeyboard('1', 'right');
+
+    // La tarjeta YA NO está en la primera columna.
+    cy.get('[data-rbd-droppable-id="0"]')
+      .find('[data-rbd-draggable-id="1"]')
+      .should('not.exist');
+
+    // La tarjeta SÍ está ahora en la segunda columna.
+    cy.get('[data-rbd-droppable-id="1"]')
+      .find('[data-rbd-draggable-id="1"]')
+      .should('exist');
+
+    // El backend recibe el PUT correcto.
+    cy.wait('@updateCandidate').then(({ request }) => {
+      expect(request.method).to.equal('PUT');
+      expect(request.url).to.match(/\/candidates\/1$/);
+      // applicationId del candidato 1 en el fixture.
+      expect(request.body.applicationId).to.equal(101);
+      // id de la fase DESTINO (Technical Interview = 2), no el índice ni el nombre.
+      expect(request.body.currentInterviewStep).to.equal(2);
+    });
+  });
+
+  it('no deja rastro si se cancela el arrastre con Escape', () => {
+    const handle = '[data-rbd-drag-handle-draggable-id="1"]';
+
+    // Levantar, mover a la derecha y CANCELAR con Escape (27).
+    cy.get(handle).focus().trigger('keydown', { keyCode: 32 });
+    cy.wait(200);
+    cy.get(handle).trigger('keydown', { keyCode: 39, force: true });
+    cy.wait(200);
+    cy.get(handle).trigger('keydown', { keyCode: 27, force: true });
+    cy.wait(200);
+
+    // La tarjeta sigue en la columna original.
+    cy.get('[data-rbd-droppable-id="0"]')
+      .find('[data-rbd-draggable-id="1"]')
+      .should('exist');
+    cy.get('[data-rbd-droppable-id="1"]')
+      .find('[data-rbd-draggable-id="1"]')
+      .should('not.exist');
+
+    // No se ha llamado al endpoint de actualización.
+    cy.get('@updateCandidate.all').should('have.length', 0);
+  });
+});
