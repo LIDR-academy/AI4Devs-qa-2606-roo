@@ -1,0 +1,30 @@
+[
+  {
+    "candidateId": 1,
+    "fullName": "Alice Johnson",
+    "currentInterviewStep": "Initial Screening",
+    "averageScore": 3,
+    "applicationId": 101
+  },
+  {
+    "candidateId": 2,
+    "fullName": "Bob Martinez",
+    "currentInterviewStep": "Initial Screening",
+    "averageScore": 2,
+    "applicationId": 102
+  },
+  {
+    "candidateId": 3,
+    "fullName": "Carla Nguyen",
+    "currentInterviewStep": "Technical Interview",
+    "averageScore": 4,
+    "applicationId": 103
+  },
+  {
+    "candidateId": 4,
+    "fullName": "David Okafor",
+    "currentInterviewStep": "Manager Interview",
+    "averageScore": 5,
+    "applicationId": 104
+  }
+]
