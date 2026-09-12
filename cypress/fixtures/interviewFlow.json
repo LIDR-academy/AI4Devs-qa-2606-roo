@@ -1,0 +1,12 @@
+{
+  "interviewFlow": {
+    "positionName": "Senior Backend Engineer",
+    "interviewFlow": {
+      "interviewSteps": [
+        { "id": 1, "name": "Initial Screening" },
+        { "id": 2, "name": "Technical Interview" },
+        { "id": 3, "name": "Manager Interview" }
+      ]
+    }
+  }
+}

@@ -2,9 +2,16 @@
   "dependencies": {
     "dotenv": "^16.4.5"
   },
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "test:e2e": "start-server-and-test \"npm --prefix frontend start\" http://localhost:3000 \"cypress run\""
+  },
   "prisma": {
     "schema": "backend/prisma/schema.prisma"
   },
   "devDependencies": {
+    "cypress": "^16.0.0",
+    "start-server-and-test": "^3.0.12"
   }
 }
