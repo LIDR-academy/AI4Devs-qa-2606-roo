@@ -11,6 +11,7 @@ const CandidateCard = ({ candidate, index, onClick }) => (
                 {...provided.draggableProps}
                 {...provided.dragHandleProps}
                 onClick={() => onClick(candidate)}
+                data-testid={`candidate-card-${candidate.id}`}
             >
                 <Card.Body>
                     <Card.Title>{candidate.name}</Card.Title>
