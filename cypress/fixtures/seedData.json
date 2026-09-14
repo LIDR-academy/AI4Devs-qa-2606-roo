@@ -1,0 +1,46 @@
+{
+  "position": {
+    "id": 1,
+    "title": "Senior Full-Stack Engineer",
+    "contactInfo": "hr@lti.com",
+    "status": "Open"
+  },
+  "positionWithoutStages": {
+    "id": 2,
+    "title": "Data Scientist"
+  },
+  "stages": [
+    { "id": 1, "name": "Initial Screening" },
+    { "id": 2, "name": "Technical Interview" },
+    { "id": 3, "name": "Manager Interview" }
+  ],
+  "candidates": {
+    "john": {
+      "candidateId": 1,
+      "applicationId": 1,
+      "name": "John Doe",
+      "email": "john.doe@gmail.com",
+      "phone": "1234567890",
+      "stage": "Technical Interview",
+      "averageScore": 5
+    },
+    "jane": {
+      "candidateId": 2,
+      "applicationId": 3,
+      "name": "Jane Smith",
+      "email": "jane.smith@gmail.com",
+      "phone": "0987654321",
+      "stage": "Technical Interview",
+      "averageScore": 4
+    },
+    "carlos": {
+      "candidateId": 3,
+      "applicationId": 4,
+      "name": "Carlos García",
+      "email": "carlos.garcia@example.com",
+      "phone": "1122334455",
+      "stage": "Initial Screening",
+      "averageScore": 0
+    }
+  }
+}
