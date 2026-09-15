@@ -52,8 +52,12 @@ const PositionsDetails = () => {
             }
         };
 
-        fetchInterviewFlow();
-        fetchCandidates();
+        const loadPositionData = async () => {
+            await fetchInterviewFlow();
+            await fetchCandidates();
+        };
+
+        loadPositionData();
     }, [id]);
 
     const updateCandidateStep = async (candidateId, applicationId, newStep) => {

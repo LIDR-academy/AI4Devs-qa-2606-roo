@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
+  },
   "dependencies": {
     "dotenv": "^16.4.5"
   },
@@ -6,5 +10,6 @@
     "schema": "backend/prisma/schema.prisma"
   },
   "devDependencies": {
+    "cypress": "^14.5.4"
   }
 }
