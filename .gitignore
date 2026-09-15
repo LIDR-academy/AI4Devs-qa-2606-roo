@@ -11,6 +11,9 @@
 
 # testing
 **/coverage
+cypress/videos
+cypress/screenshots
+cypress/downloads
 
 # production
 **/build
