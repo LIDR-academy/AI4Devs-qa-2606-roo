@@ -62,10 +62,22 @@ Se añadieron atributos `data-cy` únicamente donde hacían falta para localizar
 columnas y tarjetas de forma estable: `StageColumn.js` (`data-cy="stage-column"`,
 `data-cy-stage`) y `CandidateCard.js` (`data-cy="candidate-card"`,
 `data-cy-candidate`). El título de la posición se verifica por su texto
-existente (`<h2>`), sin modificar `PositionDetails.js`.
+existente (`<h2>`).
+
+Durante la ejecución de los tests E2E se detectó una condición de carrera
+preexistente en `PositionDetails.js`: `fetchInterviewFlow()` y
+`fetchCandidates()` se ejecutaban en paralelo y ambos modificaban `stages`,
+por lo que el resultado dependía del orden de resolución de las peticiones.
+
+Se aplicó un cambio mínimo para hacer determinista la carga, ejecutando primero
+`fetchInterviewFlow()` y después `fetchCandidates()` mediante `await`
+secuencial. No se modificaron los endpoints, el shape de datos ni la lógica
+de drag & drop.
 
 ## Fuera de alcance
 
 No se corrigieron bugs preexistentes no relacionados con estos dos escenarios
 (p. ej. `GET /candidates/:id/interviews` inexistente, `frontend/jest.config.js`
 faltante, mutación in-place en `onDragEnd`).
+
+La única corrección funcional adicional fue la condición de carrera en `PositionDetails.js`, ya que afectaba directamente la estabilidad y reproducibilidad de los escenarios E2E.
