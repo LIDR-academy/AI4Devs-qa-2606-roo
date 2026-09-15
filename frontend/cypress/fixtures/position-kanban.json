@@ -1,0 +1,39 @@
+{
+  "interviewFlowResponse": {
+    "interviewFlow": {
+      "positionName": "Senior Full-Stack Engineer",
+      "interviewFlow": {
+        "id": 1,
+        "description": "Standard development interview process",
+        "interviewSteps": [
+          { "id": 1, "name": "Initial Screening", "orderIndex": 1 },
+          { "id": 2, "name": "Technical Interview", "orderIndex": 2 },
+          { "id": 3, "name": "Manager Interview", "orderIndex": 2 }
+        ]
+      }
+    }
+  },
+  "candidatesResponse": [
+    {
+      "fullName": "John Doe",
+      "currentInterviewStep": "Technical Interview",
+      "candidateId": 1,
+      "applicationId": 1,
+      "averageScore": 4
+    },
+    {
+      "fullName": "Jane Smith",
+      "currentInterviewStep": "Technical Interview",
+      "candidateId": 2,
+      "applicationId": 3,
+      "averageScore": 0
+    },
+    {
+      "fullName": "Carlos García",
+      "currentInterviewStep": "Initial Screening",
+      "candidateId": 3,
+      "applicationId": 4,
+      "averageScore": 5
+    }
+  ]
+}
