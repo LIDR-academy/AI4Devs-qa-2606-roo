@@ -2,6 +2,19 @@
 
 This project is a full-stack application with a React frontend and an Express backend using Prisma as an ORM. The frontend is initiated with Create React App, and the backend is written in TypeScript.
 
+## Module 11 — QA E2E (Position Kanban)
+
+Deliverable for **AI4Devs Module 11**: Cypress E2E on `/positions/:id`, prompt traceability, and QA beyond the minimum rubric.
+
+| What | Where |
+|------|--------|
+| Prompt log (IA process) | [`prompts/prompts-iniciales.md`](./prompts/prompts-iniciales.md) — start at **§0 Para el revisor** |
+| E2E specs & how to run | [`frontend/cypress/README.md`](./frontend/cypress/README.md) |
+| Defect report (9 issues, 2 reproduced in Cypress) | [`frontend/cypress/informe-defectos.md`](./frontend/cypress/informe-defectos.md) |
+| One-command check | `cd frontend && npm run e2e` (14 tests) or `npm run e2e:enunciado` (enunciado-only, 12) |
+
+Copy [`.env.example`](./.env.example) to `.env` before `docker compose up` (not required for Cypress E2E; API is mocked).
+
 ## Directory and File Explanation
 
 - `backend/`: Contains the server-side code written in Node.js.
@@ -19,7 +32,7 @@ This project is a full-stack application with a React frontend and an Express ba
   - `src/`: Contains the source code for the frontend.
   - `public/`: Contains static files such as the HTML file and images.
   - `build/`: Contains the production-ready build of the frontend.
-- `.env`: Contains the environment variables.
+- `.env.example`: Template for environment variables (copy to `.env` locally).
 - `docker-compose.yml`: Contains the Docker Compose configuration to manage your application's services.
 - `README.md`: This file contains information about the project and instructions on how to run it.
 

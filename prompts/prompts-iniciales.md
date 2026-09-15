@@ -17,6 +17,44 @@ que cualquiera pueda reproducir el proceso, no solo el resultado.
 
 ---
 
+## 0. Para el revisor (60 segundos)
+
+**Validación en un comando** (mínimo del enunciado + suite ampliada):
+
+```bash
+cd frontend && npm install && npm run e2e          # 14 pruebas (regresión + caracterización)
+cd frontend && npm run e2e:enunciado               # solo position.spec.js (12) — rubric estricto
+```
+
+**Trazabilidad:** prompts (este archivo) · specs · fixtures · CI · [informe de defectos](../frontend/cypress/informe-defectos.md).
+
+### Enunciado → evidencia (PASS)
+
+| Requisito del enunciado | Dónde se cumple |
+|-------------------------|-----------------|
+| Título de la posición | `position.spec.js` — `it` «muestra el título…» |
+| Columnas por fase | `it` «muestra una columna por cada fase…» |
+| Tarjetas en la columna correcta | `it` «coloca cada tarjeta…» + fixtures `candidates.json` |
+| Drag entre columnas | `cy.dragCandidate` en `support/commands.js` + escenario B |
+| Persistencia en API | Assert `PUT /candidates/:id` (método, URL, `Content-Type`, body) |
+| `prompts-iniciales.md` en `/prompts` | Este archivo |
+| `position.spec.js` en `cypress/integration` | `frontend/cypress/integration/position.spec.js` |
+
+### Mínimo vs lo que añadimos (por qué no es “solo pasar el ejercicio”)
+
+| Enunciado pide | Nosotros entregamos además |
+|----------------|----------------------------|
+| 3 checks de carga + 1 flujo drag/PUT | 12 regresiones en `position.spec.js` (retroceso, saltos, detalle, conteo, rating, resiliencia, Escape) |
+| Cypress sobre position | **Informe de 9 defectos** reales + **2 tests de caracterización** (D-01/D-02 reproducibles) |
+| — | **CI** (GitHub Actions) + script `npm run e2e` + `data-testid` en componentes |
+| — | **Auditoría escéptica** documentada (Prompt 8 + dogfooding) y determinismo sin depender de `retries` |
+| — | Mock dev `npm run mock:api` para demo manual sin Docker |
+
+**Postura de QA:** la suite no solo confirma el happy path; demuestra que **encontramos fallos reales**
+del producto y los dejamos trazables antes de “arreglarlos en otro ticket”.
+
+---
+
 ## 1. Descripción del ejercicio
 
 Probar de inicio a fin la interfaz **"position"** (`/positions/:id`, componente
@@ -36,8 +74,9 @@ Escenarios requeridos por el enunciado:
    - Verificar que la fase se actualiza en el backend mediante `PUT /candidate/:id`
      *(texto del enunciado)* — en el código y en las pruebas: `PUT /candidates/:id`.
 
-**Entrega:** PR con los cambios bajo `/frontend`, este `prompts-iniciales.md` en
-`/prompts`, y `position.spec.js` en `cypress/integration`.
+**Entrega (contenido del repo):** cambios bajo `/frontend`, este archivo en
+`/prompts`, y `position.spec.js` en `cypress/integration`. El canal de entrega del
+curso es un PR; **el valor evaluable está en el repo** (specs, prompts, CI y evidencia §6).
 
 ---
 
@@ -289,7 +328,8 @@ Un solo comando (levanta el frontend, corre las pruebas y lo apaga):
 ```bash
 cd frontend
 npm install       # postinstall descarga el binario de Cypress
-npm run e2e         # headless
+npm run e2e         # headless — suite completa (14)
+npm run e2e:enunciado  # solo enunciado (12) — position.spec.js
 npm run e2e:open    # modo interactivo
 ```
 

@@ -11,8 +11,8 @@
  * Bootstrap, para desacoplar las pruebas de la implementación visual
  * (buena práctica del módulo: "selectores accesibles antes que CSS frágiles").
  *
- * Cada prueba se estructura en estilo BDD/Gherkin (Given / When / Then) para que
- * el escenario sea legible desde la perspectiva del usuario del negocio.
+ * Rubric enunciado: escenarios A+B → contextos «1. Carga…» y «2. Cambio de fase…».
+ * Ampliación y mapa para revisor: prompts/prompts-iniciales.md §0 y §6.
  */
 
 const POSITION_ID = 1;

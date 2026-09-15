@@ -12,7 +12,8 @@ Un solo comando (levanta el frontend, corre las pruebas y lo apaga):
 
 ```bash
 npm install        # postinstall: descarga el binario de Cypress
-npm run e2e        # headless
+npm run e2e        # headless — suite completa (14)
+npm run e2e:enunciado   # solo position.spec.js (12) — rubric estricto del enunciado
 npm run e2e:open   # modo interactivo
 ```
 
@@ -46,6 +47,16 @@ npm run mock:api
 ```
 
 Sirve en `:3010` las mismas fixtures que Cypress. Recarga `http://localhost:3000/positions/1`.
+
+## Enunciado vs ampliación
+
+| Alcance | Archivo | Pruebas |
+|---------|---------|---------|
+| **Rubric estricto** (carga + drag/PUT) | `integration/position.spec.js` | 12 |
+| Caracterización de defectos (D-01, D-02) | `integration/defectos-conocidos.spec.js` | 2 |
+| **Total** | `npm run e2e` | **14** |
+
+Lo extra no sustituye al enunciado: lo **envuelve** (resiliencia, caminos negativos, contrato HTTP completo, informe de producto).
 
 ## Qué se cubre
 

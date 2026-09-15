@@ -4,6 +4,12 @@ Defectos de la aplicación detectados mientras diseñábamos y ejecutábamos la 
 (`cypress/integration/position.spec.js`). Entorno de trabajo: Cypress 13 · React 18.3.1
 · react-beautiful-dnd 13.1.1 · Node 24.
 
+**Resumen ejecutivo.** Nueve defectos documentados; **dos críticos/altos reproducidos con Cypress**
+(D-01 carrera de carga, D-02 sin rollback tras `PUT` fallido). La suite de regresión evita
+falsos verdes en el flujo principal; los tests de caracterización **congelan** el bug hasta
+que producto lo corrija. Esto es el diferencial del módulo: QA que **encuentra** problemas,
+no solo automatiza el enunciado.
+
 **Alcance de esta entrega.** Es un trabajo de *aseguramiento de calidad*, no de producto.
 Por eso los defectos de la app **no se arreglan aquí**: se dejan documentados con
 evidencia y una propuesta de arreglo, para tratarlos por separado y no mezclar cambios de

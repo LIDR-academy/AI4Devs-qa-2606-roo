@@ -33,7 +33,9 @@
     "eject": "react-scripts eject",
     "cy:open": "cypress open --e2e",
     "cy:run": "cypress run",
+    "cy:run:enunciado": "cypress run --spec cypress/integration/position.spec.js",
     "e2e": "start-server-and-test start http://localhost:3000 cy:run",
+    "e2e:enunciado": "start-server-and-test start http://localhost:3000 cy:run:enunciado",
     "e2e:open": "start-server-and-test start http://localhost:3000 cy:open",
     "mock:api": "node scripts/dev-api-mock.js"
   },
