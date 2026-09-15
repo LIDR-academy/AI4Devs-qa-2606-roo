@@ -26,10 +26,20 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "postinstall": "cypress install",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest --config jest.config.js",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cy:open": "cypress open --e2e",
+    "cy:run": "cypress run",
+    "e2e": "start-server-and-test start http://localhost:3000 cy:run",
+    "e2e:open": "start-server-and-test start http://localhost:3000 cy:open",
+    "mock:api": "node scripts/dev-api-mock.js"
+  },
+  "devDependencies": {
+    "cypress": "^13.13.0",
+    "start-server-and-test": "^3.0.12"
   },
   "eslintConfig": {
     "extends": [
