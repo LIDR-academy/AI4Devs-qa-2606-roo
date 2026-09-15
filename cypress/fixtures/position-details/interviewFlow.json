@@ -1,0 +1,13 @@
+{
+    "interviewFlow": {
+        "positionName": "Senior Frontend Developer",
+        "interviewFlow": {
+            "interviewSteps": [
+                { "id": 1, "name": "CV Review", "orderIndex": 1, "interviewFlowId": 1, "interviewTypeId": 1 },
+                { "id": 2, "name": "Phone Screen", "orderIndex": 2, "interviewFlowId": 1, "interviewTypeId": 2 },
+                { "id": 3, "name": "Technical Interview", "orderIndex": 3, "interviewFlowId": 1, "interviewTypeId": 3 },
+                { "id": 4, "name": "HR Interview", "orderIndex": 4, "interviewFlowId": 1, "interviewTypeId": 4 }
+            ]
+        }
+    }
+}
