@@ -6,5 +6,7 @@
     "schema": "backend/prisma/schema.prisma"
   },
   "devDependencies": {
+    "cypress": "^16.0.0",
+    "@testing-library/cypress": "^10.0.2"
   }
 }

@@ -1,0 +1,23 @@
+[
+    {
+        "candidateId": 1,
+        "fullName": "Alice García",
+        "currentInterviewStep": "CV Review",
+        "averageScore": 3,
+        "applicationId": 1
+    },
+    {
+        "candidateId": 2,
+        "fullName": "Bob Martínez",
+        "currentInterviewStep": "Phone Screen",
+        "averageScore": 4,
+        "applicationId": 2
+    },
+    {
+        "candidateId": 3,
+        "fullName": "Clara López",
+        "currentInterviewStep": "CV Review",
+        "averageScore": 2,
+        "applicationId": 3
+    }
+]
