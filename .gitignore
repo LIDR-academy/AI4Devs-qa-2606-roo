@@ -12,6 +12,11 @@
 # testing
 **/coverage
 
+# cypress artifacts
+**/cypress/screenshots
+**/cypress/videos
+**/cypress/downloads
+
 # production
 **/build
 **/dist
