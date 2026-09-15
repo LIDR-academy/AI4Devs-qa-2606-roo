@@ -1,0 +1,30 @@
+[
+  {
+    "fullName": "John Doe",
+    "currentInterviewStep": "Initial Screening",
+    "candidateId": 1,
+    "applicationId": 11,
+    "averageScore": 3
+  },
+  {
+    "fullName": "Jane Smith",
+    "currentInterviewStep": "Technical Interview",
+    "candidateId": 2,
+    "applicationId": 12,
+    "averageScore": 4
+  },
+  {
+    "fullName": "Carlos Ruiz",
+    "currentInterviewStep": "Manager Interview",
+    "candidateId": 3,
+    "applicationId": 13,
+    "averageScore": 2
+  },
+  {
+    "fullName": "Ana Lopez",
+    "currentInterviewStep": "Initial Screening",
+    "candidateId": 4,
+    "applicationId": 14,
+    "averageScore": 5
+  }
+]
