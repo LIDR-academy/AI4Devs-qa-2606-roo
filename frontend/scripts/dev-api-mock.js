@@ -2,9 +2,9 @@
  * API mock en :3010 para desarrollo manual sin Docker/Postgres.
  * Usa las mismas fixtures que Cypress (deterministas).
  */
-const http = require('http');
-const fs = require('fs');
-const path = require('path');
+const http = require('node:http');
+const fs = require('node:fs');
+const path = require('node:path');
 
 const PORT = 3010;
 const FIXTURES = path.join(__dirname, '..', 'cypress', 'fixtures');
@@ -62,26 +62,26 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  const interviewFlowMatch = pathname.match(/^\/positions\/(\d+)\/interviewflow$/i);
+  const interviewFlowMatch = /^\/positions\/(\d+)\/interviewflow$/i.exec(pathname);
   if (method === 'GET' && interviewFlowMatch) {
     sendJson(res, 200, readJson('interviewFlow.json'));
     return;
   }
 
-  const candidatesByPosition = pathname.match(/^\/positions\/(\d+)\/candidates$/i);
+  const candidatesByPosition = /^\/positions\/(\d+)\/candidates$/i.exec(pathname);
   if (method === 'GET' && candidatesByPosition) {
     // Pequeño delay: evita la carrera D-01 (candidates antes que interviewFlow).
     setTimeout(() => sendJson(res, 200, readJson('candidates.json')), 80);
     return;
   }
 
-  const candidateGet = pathname.match(/^\/candidates\/(\d+)$/i);
+  const candidateGet = /^\/candidates\/(\d+)$/i.exec(pathname);
   if (method === 'GET' && candidateGet) {
     sendJson(res, 200, readJson('candidateDetail.json'));
     return;
   }
 
-  const candidatePut = pathname.match(/^\/candidates\/(\d+)$/i);
+  const candidatePut = /^\/candidates\/(\d+)$/i.exec(pathname);
   if (method === 'PUT' && candidatePut) {
     let body = '';
     req.on('data', (chunk) => {
