@@ -11,9 +11,11 @@ const CandidateCard = ({ candidate, index, onClick }) => (
                 {...provided.draggableProps}
                 {...provided.dragHandleProps}
                 onClick={() => onClick(candidate)}
+                data-testid="candidate-card"
+                data-candidate-id={candidate.id}
             >
                 <Card.Body>
-                    <Card.Title>{candidate.name}</Card.Title>
+                    <Card.Title data-testid="candidate-name">{candidate.name}</Card.Title>
                     <div>
                         {Array.from({ length: candidate.rating }).map((_, i) => (
                             <span key={i} role="img" aria-label="rating">🟢</span>

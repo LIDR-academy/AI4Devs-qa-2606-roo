@@ -10,7 +10,11 @@
         "test": "jest",
         "prisma:init": "npx prisma init",
         "prisma:generate": "npx prisma generate",
+        "db:seed": "ts-node --transpile-only prisma/seed.ts",
         "start:prod": "npm run build && npm start"
+    },
+    "prisma": {
+        "seed": "ts-node --transpile-only prisma/seed.ts"
     },
     "keywords": [],
     "author": "",

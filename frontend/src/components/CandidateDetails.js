@@ -69,15 +69,15 @@ const CandidateDetails = ({ candidate, onClose }) => {
     };
 
     return (
-        <Offcanvas show={!!candidate} onHide={onClose} placement="end">
+        <Offcanvas show={!!candidate} onHide={onClose} placement="end" data-testid="candidate-details-panel">
             <Offcanvas.Header closeButton>
-                <Offcanvas.Title>Detalles del Candidato</Offcanvas.Title>
+                <Offcanvas.Title data-testid="detail-title">Detalles del Candidato</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
                 {candidateDetails ? (
                     <>
-                        <h5>{candidateDetails.firstName} {candidateDetails.lastName}</h5>
-                        <p>Email: {candidateDetails.email}</p>
+                        <h5 data-testid="detail-name">{candidateDetails.firstName} {candidateDetails.lastName}</h5>
+                        <p data-testid="detail-email">Email: {candidateDetails.email}</p>
                         <p>Teléfono: {candidateDetails.phone}</p>
                         <p>Dirección: {candidateDetails.address}</p>
                         <h5>Educación</h5>

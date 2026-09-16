@@ -1,0 +1,11 @@
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john.doe@example.com",
+  "phone": "600123123",
+  "address": "123 Main St",
+  "educations": [],
+  "workExperiences": [],
+  "resumes": [],
+  "applications": []
+}

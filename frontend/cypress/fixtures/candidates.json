@@ -1,0 +1,23 @@
+[
+  {
+    "candidateId": 1,
+    "fullName": "John Doe",
+    "currentInterviewStep": "Initial Screening",
+    "averageScore": 3,
+    "applicationId": 10
+  },
+  {
+    "candidateId": 2,
+    "fullName": "Jane Smith",
+    "currentInterviewStep": "Technical Interview",
+    "averageScore": 4,
+    "applicationId": 20
+  },
+  {
+    "candidateId": 3,
+    "fullName": "Robert Brown",
+    "currentInterviewStep": "Manager Interview",
+    "averageScore": 5,
+    "applicationId": 30
+  }
+]
